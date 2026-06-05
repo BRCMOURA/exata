@@ -1,78 +1,99 @@
 import BoxInput from "@/src/components/Boxinput";
 import Button from "@/src/components/Button";
-import icons from "@/src/constants/icons";
-import { StatusBar } from "expo-status-bar";
-import { useRouter, Stack } from "expo-router";
-import { Text, TouchableOpacity, View, Image, ScrollView } from "react-native";
+import { useRouter } from "expo-router";
+import { useState } from "react";
+import { Alert, Keyboard, KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, View } from "react-native";
 
 export default function Login() {
 
-    const router = useRouter();
+  const router = useRouter();
 
-    return (
-        
-    <View className="flex-1 bg-[#F5F5F5]">
-      <Stack.Screen options={{ headerShown: false }} />
-      <StatusBar style="light" />
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-      
-      <View className="bg-[#5B33D4] pt-12 pb-6 px-6 items-center shadow-md">
-        <TouchableOpacity 
-          onPress={() => router.back()} 
-          className="absolute left-6 top-14 z-10"
-        >
-          <Image 
-            source={icons.seta} 
-            className="w-6 h-6" 
-            resizeMode="contain" 
-          />
-        </TouchableOpacity>
+  const handlePress = () => {
+    if (Platform.OS === 'web') {
+      (document.activeElement as HTMLElement)?.blur();
+    }
+    router.navigate('/register');
+  };
 
-        <Image 
-          source={icons.logo2} 
-          resizeMode="contain" 
-          className="w-32 h-20" 
-        />
-      </View>
+  function ProcessarLogin() {
 
-      
-      <ScrollView 
-        contentContainerStyle={{ flexGrow: 1 }} 
+    Keyboard.dismiss();
+
+    if (!email.trim() || !password.trim()) {
+      const titulo = "E-mail ou senha vazios";
+      const mensagem = "Por favor, preencha o e-mail e a senha para continuar.";
+
+      if (Platform.OS === 'web') {
+        window.alert(`${titulo}: ${mensagem}`);
+      } else {
+        Alert.alert(titulo, mensagem, [{ text: "OK" }]);
+      }
+
+      return;
+    }
+
+    router.navigate('/home');
+
+  }
+
+  return (
+
+    <KeyboardAvoidingView
+      behavior="padding"
+      className="flex-1 bg-[#F5F5F5]"
+      keyboardVerticalOffset={64}
+    >
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1 }}
         className="px-8 pt-10"
+        keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
       >
-        
+
         <Text className="text-[#5B33D4] text-xl font-bold text-center mb-12">
           Acesse sua conta
         </Text>
 
-        
+
         <View className="w-full mb-10">
-          <BoxInput 
-            label="E-mail" 
-            placeholder="Digite seu melhor e-mail" 
+          <BoxInput
+            label="E-mail"
+            placeholder="Digite seu melhor e-mail"
+            onChangeText={setEmail}
+            value={email}
           />
           <View className="mt-4">
-            <BoxInput 
-              label="Senha" 
-              placeholder="Digite uma senha segura" 
-              isPassword 
+            <BoxInput
+              label="Senha"
+              placeholder="Digite uma senha segura"
+              isPassword
+              onChangeText={setPassword}
+              value={password}
             />
           </View>
         </View>
 
-        
+
         <View className="w-full mb-8">
-          <Button label="ACESSAR" url="/(tabs)" />
+          <Button
+            label="ACESSAR"
+            funcao={ProcessarLogin}
+          />
         </View>
 
-        
-        <TouchableOpacity onPress={() => router.push("/register")}>
-          <Text className="text-[#5B33D4] text-lg font-semibold text-center mb-10">
+        <Pressable
+          onPress={handlePress}
+          className="active:opacity-70 items-center mb-36">
+          <Text className="text-[#5B33D4] text-lg font-semibold">
             Criar minha conta
           </Text>
-        </TouchableOpacity>
+        </Pressable>
+
       </ScrollView>
-    </View>
+
+    </KeyboardAvoidingView>
   );
 }

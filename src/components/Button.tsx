@@ -1,24 +1,35 @@
-import { Text, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
+import { Platform, Pressable, Text } from "react-native";
 
 interface ButtonProps {
-  label: string;
-  url: string;
+  label: string
+  url?: string
+  funcao?: () => void
 }
 
-export default function Button({ label, url }: ButtonProps) {
+export default function Button(props: ButtonProps) {
+
   const router = useRouter();
 
+  const handlePress = () => {
+
+    Platform.OS === 'web' && (document.activeElement as HTMLElement)?.blur();
+
+    props.funcao?.();
+
+    props.url && router.navigate(`./${props.url}`);
+
+    if (__DEV__ && !props.funcao && !props.url) {
+      console.warn(`O botão "${props.label}" foi clicado, mas não possui função ou URL.`);
+    }
+
+  };
+
   return (
-    <TouchableOpacity
-      activeOpacity={0.8}
-      // Usando replace para limpar o histórico de autenticação ao entrar na Home
-      onPress={() => router.replace(url as any)}
-      className="w-full bg-[#E91E63] py-4 rounded-2xl items-center shadow-md"
-    >
-      <Text className="text-white text-lg font-bold uppercase tracking-wider">
-        {label}
-      </Text>
-    </TouchableOpacity>
+    <Pressable
+      onPress={handlePress}
+      className="active:opacity-70 items-center bg-[#E91E63] rounded-2xl">
+      <Text className="text-xl text-white font-bold py-4 ">{props.label}</Text>
+    </Pressable>
   );
 }

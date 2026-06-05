@@ -1,8 +1,7 @@
-import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
-import { useRouter, Stack } from "expo-router";
-import { StatusBar } from "expo-status-bar";
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
+import { useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import icons from "../../constants/icons";
+
 
 export default function Funcoes() {
   const router = useRouter();
@@ -31,29 +30,7 @@ export default function Funcoes() {
 
   return (
     <View className="flex-1 bg-white">
-      <Stack.Screen options={{ headerShown: false }} />
-      <StatusBar style="light" />
-
-      
-      <View className="bg-[#5B33D4] pt-14 pb-8 px-6 flex-row items-center justify-center relative shadow-md">
-        <TouchableOpacity 
-          onPress={() => router.back()} 
-          className="absolute left-6 top-16 z-10"
-        >
-          <Image 
-            source={icons.seta} 
-            className="w-6 h-6" 
-            resizeMode="contain" 
-          />
-        </TouchableOpacity>
-
-        
-        <Text className="text-white text-2xl font-bold text-center tracking-wide">
-          <Text className="italic font-serif text-3xl">f x</Text> - ELETRICIDADE
-        </Text>
-      </View>
-
-      
+     
       <ScrollView 
         className="flex-1 px-6 pt-10"
         showsVerticalScrollIndicator={false}
