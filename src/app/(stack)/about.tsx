@@ -17,20 +17,20 @@ export default function About() {
       >
                
         <View className="bg-[#E84D8A] p-6 rounded-3xl mb-16 shadow-sm">
-          <Text className="text-black text-lg font-bold mb-2">
+          <Text className="text-white text-lg font-bold mb-2">
             Professora Lorrayne Teles Santos
           </Text>
-          <Text className="text-black text-base font-medium leading-6 text-justify">
+          <Text className="text-white text-base font-medium leading-6 text-justify">
             Licenciada em Matemática (UNIFAN), especialista em Projetos de Tempo Integral (FAVENI), especialista em Robótica aplicada em Matemática (UFCAT).
           </Text>
         </View>
 
         
         <View className="bg-[#4ECDC4] p-6 rounded-3xl shadow-sm">
-          <Text className="text-black text-lg font-bold mb-2">
+          <Text className="text-white text-lg font-bold mb-2">
             Professor Bruno Rafael Camilo de Moura
           </Text>
-          <Text className="text-black text-base font-medium leading-6 text-justify">
+          <Text className="text-white text-base font-medium leading-6 text-justify">
             Licenciado em Física (UFG), especialista em Matemática e Física (FAVENI), especialista em Robótica aplicada em Matemática (UFCAT).
           </Text>
         </View>
