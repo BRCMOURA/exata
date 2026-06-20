@@ -23,8 +23,8 @@ export default function Login() {
     Keyboard.dismiss();
 
     if (!email.trim() || !password.trim()) {
-      const titulo = "E-mail ou senha vazios";
-      const mensagem = "Por favor, preencha o e-mail e a senha para continuar.";
+      const titulo = `E-mail ou senha vazios`;
+      const mensagem = `${"\n"}Por favor, preencha o e-mail e a senha para continuar.`;
 
       if (Platform.OS === 'web') {
         window.alert(`${titulo}: ${mensagem}`);
@@ -53,7 +53,7 @@ export default function Login() {
         showsVerticalScrollIndicator={false}
       >
 
-        <Text className="text-[#5B33D4] text-xl font-bold text-center mb-12">
+        <Text className="text-[#5B33D4] text-2xl font-normal text-center mb-12">
           Acesse sua conta
         </Text>
 
@@ -86,7 +86,7 @@ export default function Login() {
 
         <Pressable
           onPress={handlePress}
-          className="active:opacity-70 items-center mb-36">
+          className="active:opacity-70 items-center">
           <Text className="text-[#5B33D4] text-lg font-semibold">
             Criar minha conta
           </Text>

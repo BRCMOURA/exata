@@ -1,9 +1,9 @@
-import { useRouter } from "expo-router";
+import { Href, useRouter } from "expo-router";
 import { Platform, Pressable, Text } from "react-native";
 
 interface ButtonProps {
   label: string
-  url?: string
+  url?: Href
   funcao?: () => void
 }
 
@@ -17,7 +17,9 @@ export default function Button(props: ButtonProps) {
 
     props.funcao?.();
 
-    props.url && router.navigate(`./${props.url}`);
+    if (props.url) {
+      router.navigate(props.url); 
+    }
 
     if (__DEV__ && !props.funcao && !props.url) {
       console.warn(`O botão "${props.label}" foi clicado, mas não possui função ou URL.`);
@@ -27,7 +29,7 @@ export default function Button(props: ButtonProps) {
 
   return (
     <Pressable
-      onPress={handlePress}
+      onPress = {handlePress}
       className="active:opacity-70 items-center bg-[#E91E63] rounded-2xl">
       <Text className="text-xl text-white font-bold py-4 ">{props.label}</Text>
     </Pressable>

@@ -1,32 +1,57 @@
 import icons from "@/src/constants/icons";
 import "@/src/style/global.css";
 import { Stack } from "expo-router";
-import { Image, View, Text } from "react-native";
+import { Image, Platform, Text, View } from "react-native";
 
 
 export default function StackLayout() {
     return (<Stack screenOptions={{
         headerStyle: { backgroundColor: "#5B33D4" },
         headerTintColor: "#ffffff",
-        contentStyle: { backgroundColor: "#ffffff" },
+        contentStyle: { backgroundColor: "#F5F5F5" },
     }} >;
         <Stack.Screen
             name="login"
             options={{
+                headerStyle: {
+                    backgroundColor: "#5B33D4",
+                    ...Platform.select({
+                        ios: { height: 120 },
+                        android: { height: 120 },
+                        web: { height: 120 }
+                    })
+                },
                 headerTitle: () => (
-                    <Image source={icons.logo2}
-                        style={{ width: 100, height: 100, marginBottom: 20 }} />
+                    <View className="items-center justify-center"
+                        style={{ height: 130 }}>
+                        <Image source={icons.logo3}
+                            style={{ width: 90, height: 90 }}
+                            resizeMode="contain" />
+                    </View>
                 ),
                 headerTitleAlign: 'center',
-                headerShadowVisible: false
+                headerShadowVisible: false,
+                headerBackVisible: true
             }}
         />
         <Stack.Screen
             name="register"
             options={{
+                headerStyle: {
+                    backgroundColor: "#5B33D4",
+                    ...Platform.select({
+                        ios: { height: 120 },
+                        android: { height: 120 },
+                        web: { height: 120 }
+                    })
+                },
                 headerTitle: () => (
-                    <Image source={icons.logo2}
-                        style={{ width: 100, height: 100, marginBottom: 20 }} />
+                    <View className="items-center justify-center"
+                        style={{ height: 130 }}>
+                        <Image source={icons.logo3}
+                            style={{ width: 90, height: 90 }}
+                            resizeMode="contain" />
+                    </View>
                 ),
                 headerTitleAlign: 'center',
                 headerShadowVisible: false
@@ -35,9 +60,21 @@ export default function StackLayout() {
         <Stack.Screen
             name="about"
             options={{
+                headerStyle: {
+                    backgroundColor: "#5B33D4",
+                    ...Platform.select({
+                        ios: { height: 120 },
+                        android: { height: 120 },
+                        web: { height: 120 }
+                    })
+                },
                 headerTitle: () => (
-                    <Image source={icons.logo2}
-                        style={{ width: 100, height: 100, marginBottom: 20 }} />
+                    <View className="items-center justify-center"
+                        style={{ height: 130 }}>
+                        <Image source={icons.logo3}
+                            style={{ width: 90, height: 90 }}
+                            resizeMode="contain" />
+                    </View>
                 ),
                 headerTitleAlign: 'center',
                 headerShadowVisible: false
@@ -46,113 +83,312 @@ export default function StackLayout() {
         <Stack.Screen
             name="funcoes"
             options={{
+                headerStyle: {
+                    backgroundColor: "#5B33D4",
+                    ...Platform.select({
+                        ios: { height: 120 },
+                        android: { height: 120 },
+                        web: { height: 120 }
+                    })
+                },
                 headerTitle: () => (
-                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 20 }}>
-                        <Image source={icons.abamath}
-                            style={{ width: 40, height: 40, marginBottom: 20 }} />
-                            <Text className="text-white text-2xl">FUNÇÕES</Text>
+                    <View className={`flex-1 w-full items-center justify-center ${Platform.OS === 'android' ? 'py-0' : Platform.OS === 'ios' ? 'py-0' : 'py-0'}`}
+                        style={{ height: 130 }}>
+                        <View className={"flex-row items-center gap-3"}>
+                            <Image
+                                source={icons.abamath}
+                                style={{ width: 70, height: 70 }}
+                                resizeMode="contain"
+                            />
+                            <Text className="text-white text-2xl font-semibold pt-1">
+                                FUNÇÕES
+                            </Text>
+                        </View>
                     </View>
                 ),
-                headerTitleAlign: 'center',
-                headerShadowVisible: false
+                headerRight: () => (
+                    <Image
+                        source={icons.logo3}
+                        style={{ width: 90, height: 90 }}
+                        resizeMode="contain"
+                    />
+                ),
+                headerTitleAlign: 'left',
+                headerShadowVisible: false,
+                headerBackVisible: true
             }}
         />
         <Stack.Screen
             name="equacoes"
             options={{
+                headerStyle: {
+                    backgroundColor: "#5B33D4",
+                    ...Platform.select({
+                        ios: { height: 120 },
+                        android: { height: 120 },
+                        web: { height: 120 }
+                    })
+                },
                 headerTitle: () => (
-                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 20 }}>
-                        <Image source={icons.abaequacoes}
-                            style={{ width: 40, height: 40, marginBottom: 20 }} />
-                            <Text className="text-white text-2xl">EQUAÇÕES</Text>
+                    <View className={`flex-1 w-full items-center justify-center ${Platform.OS === 'android' ? 'py-0' : Platform.OS === 'ios' ? 'py-0' : 'py-0'}`}
+                        style={{ height: 130 }}>
+                        <View className={"flex-row items-center gap-3"}>
+                            <Image
+                                source={icons.abaequacoes}
+                                style={{ width: 60, height: 60 }}
+                                resizeMode="contain"
+                            />
+                            <Text className="text-white text-2xl font-semibold pt-1">
+                                EQUAÇÕES
+                            </Text>
+                        </View>
                     </View>
                 ),
-                headerTitleAlign: 'center',
-                headerShadowVisible: false
+                headerRight: () => (
+                    <Image
+                        source={icons.logo3}
+                        style={{ width: 90, height: 90 }}
+                        resizeMode="contain"
+                    />
+                ),
+                headerTitleAlign: 'left',
+                headerShadowVisible: false,
+                headerBackVisible: true
+
             }}
         />
         <Stack.Screen
             name="geometria"
             options={{
+                headerStyle: {
+                    backgroundColor: "#5B33D4",
+                    ...Platform.select({
+                        ios: { height: 120 },
+                        android: { height: 120 },
+                        web: { height: 120 }
+                    })
+                },
                 headerTitle: () => (
-                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 20 }}>
-                        <Image source={icons.abageometria}
-                            style={{ width: 40, height: 40, marginBottom: 20 }} />
-                            <Text className="text-white text-2xl">GEOMETRIA</Text>
+                    <View className={`flex-1 w-full items-center justify-center ${Platform.OS === 'android' ? 'py-0' : Platform.OS === 'ios' ? 'py-0' : 'py-0'}`}
+                        style={{ height: 130 }}>
+                        <View className={"flex-row items-center gap-3"}>
+                            <Image
+                                source={icons.abageometria}
+                                style={{ width: 60, height: 60 }}
+                                resizeMode="contain"
+                            />
+                            <Text className="text-white text-2xl font-semibold pt-1">
+                                GEOMETRIA
+                            </Text>
+                        </View>
                     </View>
                 ),
-                headerTitleAlign: 'center',
-                headerShadowVisible: false
+                headerRight: () => (
+                    <Image
+                        source={icons.logo3}
+                        style={{ width: 90, height: 90 }}
+                        resizeMode="contain"
+                    />
+                ),
+                headerTitleAlign: 'left',
+                headerShadowVisible: false,
+                headerBackVisible: true
+
             }}
         />
-         <Stack.Screen
+        <Stack.Screen
             name="trigonometria"
             options={{
+                headerStyle: {
+                    backgroundColor: "#5B33D4",
+                    ...Platform.select({
+                        ios: { height: 120 },
+                        android: { height: 120 },
+                        web: { height: 120 }
+                    })
+                },
                 headerTitle: () => (
-                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 20 }}>
-                        <Image source={icons.abacos}
-                            style={{ width: 40, height: 40, marginBottom: 20 }} />
-                            <Text className="text-white text-2xl">TRIGONOMETRIA</Text>
+                    <View className={`flex-1 w-full items-center justify-center ${Platform.OS === 'android' ? 'py-0' : Platform.OS === 'ios' ? 'py-0' : 'py-0'}`}
+                        style={{ height: 130 }}>
+                        <View className={"flex-row items-center gap-3"}>
+                            <Image
+                                source={icons.abacos}
+                                style={{ width: 70, height: 70 }}
+                                resizeMode="contain"
+                            />
+                            <Text className="text-white text-xl font-semibold pt-1">
+                                TRIGONOMETRIA
+                            </Text>
+                        </View>
                     </View>
                 ),
-                headerTitleAlign: 'center',
-                headerShadowVisible: false
+                headerRight: () => (
+                    <Image
+                        source={icons.logo3}
+                        style={{ width: 90, height: 90 }}
+                        resizeMode="contain"
+                    />
+                ),
+                headerTitleAlign: 'left',
+                headerShadowVisible: false,
+                headerBackVisible: true
+
             }}
         />
-            <Stack.Screen
+        <Stack.Screen
             name="cinematica"
             options={{
+                headerStyle: {
+                    backgroundColor: "#5B33D4",
+                    ...Platform.select({
+                        ios: { height: 120 },
+                        android: { height: 120 },
+                        web: { height: 120 }
+                    })
+                },
                 headerTitle: () => (
-                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 20 }}>
-                        <Image source={icons.abacinematica}
-                            style={{ width: 40, height: 40, marginBottom: 20 }} />
-                            <Text className="text-white text-2xl">CINEMÁTICA</Text>
+                    <View className={`flex-1 w-full items-center justify-center ${Platform.OS === 'android' ? 'py-0' : Platform.OS === 'ios' ? 'py-0' : 'py-0'}`}
+                        style={{ height: 130 }}>
+                        <View className={"flex-row items-center gap-5"}>
+                            <Image
+                                source={icons.abacinematica}
+                                style={{ width: 60, height: 60 }}
+                                resizeMode="contain"
+                            />
+                            <Text className="text-white text-2xl font-semibold pt-1">
+                                CINEMÁTICA
+                            </Text>
+                        </View>
                     </View>
                 ),
-                headerTitleAlign: 'center',
-                headerShadowVisible: false
+                headerRight: () => (
+                    <Image
+                        source={icons.logo3}
+                        style={{ width: 90, height: 90 }}
+                        resizeMode="contain"
+                    />
+                ),
+                headerTitleAlign: 'left',
+                headerShadowVisible: false,
+                headerBackVisible: true
+
             }}
         />
         <Stack.Screen
             name="eletricidade"
             options={{
+                headerStyle: {
+                    backgroundColor: "#5B33D4",
+                    ...Platform.select({
+                        ios: { height: 120 },
+                        android: { height: 120 },
+                        web: { height: 120 }
+                    })
+                },
                 headerTitle: () => (
-                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 20 }}>
-                        <Image source={icons.abaeletricidade}
-                            style={{ width: 40, height: 40, marginBottom: 20 }} />
-                            <Text className="text-white text-2xl">ELETRICIDADE</Text>
+                    <View className={`flex-1 w-full items-center justify-center ${Platform.OS === 'android' ? 'py-0' : Platform.OS === 'ios' ? 'py-0' : 'py-0'}`}
+                        style={{ height: 130 }}>
+                        <View className={"flex-row items-center gap-5"}>
+                            <Image
+                                source={icons.abaeletricidade}
+                                style={{ width: 50, height: 50 }}
+                                resizeMode="contain"
+                            />
+                            <Text className="text-white text-2xl font-semibold pt-1">
+                                ELETRICIDADE
+                            </Text>
+                        </View>
                     </View>
                 ),
-                headerTitleAlign: 'center',
-                headerShadowVisible: false
+                headerRight: () => (
+                    <Image
+                        source={icons.logo3}
+                        style={{ width: 90, height: 90 }}
+                        resizeMode="contain"
+                    />
+                ),
+                headerTitleAlign: 'left',
+                headerShadowVisible: false,
+                headerBackVisible: true
+
             }}
         />
         <Stack.Screen
             name="termodinamica"
             options={{
+                headerStyle: {
+                    backgroundColor: "#5B33D4",
+                    ...Platform.select({
+                        ios: { height: 120 },
+                        android: { height: 120 },
+                        web: { height: 120 }
+                    })
+                },
                 headerTitle: () => (
-                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 20 }}>
-                        <Image source={icons.abatermodinamica}
-                            style={{ width: 40, height: 40, marginBottom: 20 }} />
-                            <Text className="text-white text-2xl">TERMODINÂMICA</Text>
+                    <View className={`flex-1 w-full items-center justify-center ${Platform.OS === 'android' ? 'py-0' : Platform.OS === 'ios' ? 'py-0' : 'py-0'}`}
+                        style={{ height: 130 }}>
+                        <View className={"flex-row items-center"}>
+                            <Image
+                                source={icons.abatermodinamica}
+                                style={{ width: 60, height: 60 }}
+                                resizeMode="contain"
+                            />
+                            <Text className="text-white text-2xl font-semibold pt-1">
+                                TERMODINÂMICA
+                            </Text>
+                        </View>
                     </View>
                 ),
-                headerTitleAlign: 'center',
-                headerShadowVisible: false
+                headerRight: () => (
+                    <Image
+                        source={icons.logo3}
+                        style={{ width: 90, height: 90 }}
+                        resizeMode="contain"
+                    />
+                ),
+                headerTitleAlign: 'left',
+                headerShadowVisible: false,
+                headerBackVisible: true
+
             }}
         />
         <Stack.Screen
             name="optica"
             options={{
+                headerStyle: {
+                    backgroundColor: "#5B33D4",
+                    ...Platform.select({
+                        ios: { height: 120 },
+                        android: { height: 120 },
+                        web: { height: 120 }
+                    })
+                },
                 headerTitle: () => (
-                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 20 }}>
-                        <Image source={icons.abaoptica}
-                            style={{ width: 40, height: 40, marginBottom: 20 }} />
-                            <Text className="text-white text-2xl">ÓPTICA</Text>
+                    <View className={`flex-1 w-full items-center justify-center ${Platform.OS === 'android' ? 'py-0' : Platform.OS === 'ios' ? 'py-0' : 'py-0'}`}
+                        style={{ height: 130 }}>
+                        <View className={"flex-row items-center gap-5"}>
+                            <Image
+                                source={icons.abaoptica}
+                                style={{ width: 60, height: 60 }}
+                                resizeMode="contain"
+                            />
+                            <Text className="text-white text-2xl font-semibold pt-1">
+                                ÓPTICA
+                            </Text>
+                        </View>
                     </View>
                 ),
-                headerTitleAlign: 'center',
-                headerShadowVisible: false
+                headerRight: () => (
+                    <Image
+                        source={icons.logo3}
+                        style={{ width: 90, height: 90 }}
+                        resizeMode="contain"
+                    />
+                ),
+                headerTitleAlign: 'left',
+                headerShadowVisible: false,
+                headerBackVisible: true
+
             }}
         />
     </Stack >
