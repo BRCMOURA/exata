@@ -1,5 +1,5 @@
 import { Image, Text, TouchableOpacity, View, ScrollView } from "react-native";
-import { useRouter, Stack } from "expo-router";
+import { useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import icons from "@/src/constants/icons";
 
@@ -9,7 +9,6 @@ export default function Math() {
   return (
     <View className="flex-1 bg-[#F5F5F5]">
       {/* Remove o cabeçalho padrão para usar o cabeçalho roxo que configuramos no _layout */}
-      <Stack.Screen options={{ headerShown: false }} />
       <StatusBar style="light" />
 
       {/* Grid de Rolagem dos Conteúdos de Matemática */}
@@ -99,7 +98,7 @@ export default function Math() {
             className="w-12 h-12 opacity-90" 
             resizeMode="contain" 
           />
-          
+
           <View className="flex-1 pr-2">
             <Text className="text-black text-xl font-bold mb-1">
               Trigonometria

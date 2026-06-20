@@ -109,7 +109,13 @@ export default function TabsLayout() {
           <Image source={icons.abaperfil}
             style={{ width: 32, height: 32, opacity: focused ? 1 : 0.3 }} />
         ),
-        headerTitle: () => null,
+        headerTitle: () => (
+          <View className="pl-8">
+            <Text className="text-white text-3xl font-bold">
+              Meu Perfil
+            </Text>
+          </View>
+        ),
         headerRight: () => (
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
             <Image source={icons.logo3}

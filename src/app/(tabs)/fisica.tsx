@@ -7,8 +7,6 @@ export default function Fisica() {
 
   return (
     
-      
-
       <ScrollView 
         className="flex-1"
         contentContainerStyle={{ 
