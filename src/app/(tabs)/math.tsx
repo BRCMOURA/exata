@@ -29,80 +29,83 @@ export default function Math() {
           activeOpacity={0.8}
           // Redireciona para a tela funcoes.tsx que criamos dentro da pasta (stack)
           onPress={() => router.push("/funcoes")} 
-          className="bg-[#E91E63] p-6 rounded-2xl mb-8 shadow-md flex-row items-center justify-between"
+          className="bg-[#ffff] p-6 rounded-2xl mb-8 shadow-md flex-row items-center justify-between"
         >
-          <View className="flex-1 pr-2">
-            <Text className="text-white text-xl font-bold mb-1">
-              Funções
-            </Text>
-          </View>
-          
-          {/* Ícone ilustrativo da função importado do seu arquivo de assets */}
+            {/* Ícone ilustrativo da função importado do seu arquivo de assets */}
           <Image 
             source={icons.func} 
             className="w-12 h-12 opacity-90" 
             resizeMode="contain" 
           />
+
+          <View className="flex-1 pr-2">
+            <Text className="text-black text-xl font-bold mb-1">
+              Funções
+            </Text>
+          </View>
         </TouchableOpacity>
 
         {/* Card 2: Equações */}
         <TouchableOpacity 
           activeOpacity={0.8}
           onPress={() => router.push("/equacoes" as any)} 
-          className="bg-[#E91E63] p-6 rounded-2xl shadow-md flex-row items-center justify-between" 
+          className="bg-[#ffff] p-6 rounded-2xl shadow-md flex-row items-center justify-between" 
         >
-          <View className="flex-1 pr-2">
-            <Text className="text-white text-xl font-bold mb-1">
-              Equações
-            </Text>
-          </View>
-
-          {/* Ícone ilustrativo de geometria importado do seu arquivo de assets */}
+               {/* Ícone ilustrativo de geometria importado do seu arquivo de assets */}
           <Image 
             source={icons.integral} 
             className="w-12 h-12 opacity-90" 
             resizeMode="contain" 
           />
+
+          <View className="flex-1 pr-2">
+            <Text className="text-black text-xl font-bold mb-1">
+              Equações
+            </Text>
+          </View>
         </TouchableOpacity>
 
          {/* Card 3: Geometria */}
         <TouchableOpacity 
           activeOpacity={0.8}
           onPress={() => router.push("/geometria" as any)} 
-          className="bg-[#E91E63] p-6 rounded-2xl shadow-md flex-row items-center justify-between" 
+          className="bg-[#ffff] p-6 rounded-2xl shadow-md flex-row items-center justify-between" 
         >
-          <View className="flex-1 pr-2">
-            <Text className="text-white text-xl font-bold mb-1">
-              Geometria
-            </Text>
-          </View>
-
           {/* Ícone ilustrativo de geometria importado do seu arquivo de assets */}
           <Image 
             source={icons.geometric} 
             className="w-12 h-12 opacity-90" 
             resizeMode="contain" 
           />
+
+          <View className="flex-1 pr-2">
+            <Text className="text-black text-xl font-bold mb-1">
+              Geometria
+            </Text>
+          </View>
+
+          
         </TouchableOpacity>
 
         {/* Card 4: Trigonometria */}
         <TouchableOpacity 
           activeOpacity={0.8}
           onPress={() => router.push("/trigonometria" as any)} 
-          className="bg-[#E91E63] p-6 rounded-2xl shadow-md flex-row items-center justify-between" 
+          className="bg-[#ffff] p-6 rounded-2xl shadow-md flex-row items-center justify-between" 
         >
-          <View className="flex-1 pr-2">
-            <Text className="text-white text-xl font-bold mb-1">
-              Trigonometria
-            </Text>
-          </View>
-
-          {/* Ícone ilustrativo de geometria importado do seu arquivo de assets */}
+             {/* Ícone ilustrativo de geometria importado do seu arquivo de assets */}
           <Image 
             source={icons.cos} 
             className="w-12 h-12 opacity-90" 
             resizeMode="contain" 
           />
+          
+          <View className="flex-1 pr-2">
+            <Text className="text-black text-xl font-bold mb-1">
+              Trigonometria
+            </Text>
+          </View>
+
         </TouchableOpacity>
 
       </ScrollView>
